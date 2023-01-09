@@ -53,6 +53,32 @@ const create = async (content, sender_id, receiver_id) => {
   } 
 }
 
-module.exports = {
-  create
+const get = async () => {
+
+  let error_message = {
+    code : 400,
+    content : ''
+  }
+
+  if(error_message?.content) return error_message;
+
+  const allMessages = await messages.find()
+
+  if(!allMessages){
+    error_message ={
+      ...error_message,
+      content : 'Error in create message'
+    }
+  }
+
+  if(error_message?.message) return error_message;
+
+  return {
+    code : 200,
+    content : allMessages
+  } 
 }
+
+
+exports.create = create;
+exports.get = get;

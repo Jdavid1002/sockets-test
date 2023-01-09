@@ -1,4 +1,4 @@
-const app = require('../../server')
+const app = require('../../index')
 const create = require('./functions')
 
 app.post("/create-message", async function (req, res) {
