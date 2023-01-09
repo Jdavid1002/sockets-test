@@ -32,9 +32,9 @@
       e.preventDefault()
       if (input.value) {
         socket.emit('chat message', {
-          message : input.value,
-          friend : 'user-2',
-          id : 'user-1'
+          content : input.value,
+          sender_id : 'user-2',
+          receiver_id : 'user-1'
         })
         input.value = ''
       }
